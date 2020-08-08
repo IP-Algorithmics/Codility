@@ -17,10 +17,10 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine(Test("AAB", new int[] { 1, -1, 2 }, new int[] { 1, -1, -2 }));
-        }
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(Test("AAB", new int[] { 1, -1, 2 }, new int[] { 1, -1, -2 }));
+        //}
 
         static int Test(string S, int[] X, int[] Y)
         {

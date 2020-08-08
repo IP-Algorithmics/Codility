@@ -2,3 +2,6 @@
 **/build
 **/prod
 **/dist
+**/bin
+**/obj
+**/.vs
