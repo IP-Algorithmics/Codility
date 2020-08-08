@@ -1,0 +1,23 @@
+{
+    "name": "codility",
+    "version": "1.0.0",
+    "description": "Solutions for Codility problems",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "ts": "npx ts-node "
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IulianOctavianPreda/Codility.git"
+    },
+    "author": "Iulian Preda",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/IulianOctavianPreda/Codility/issues"
+    },
+    "homepage": "https://github.com/IulianOctavianPreda/Codility#readme",
+    "dependencies": {
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+    }
+}
