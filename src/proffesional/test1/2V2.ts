@@ -1,10 +1,11 @@
-// improvement , missing .join on char array, that makes it work
-// zip code receives string not array
 function removeChr(str, k) {
     let strLen = str.length;
     let min = Infinity;
     for (let i = 0; i < strLen - k; i++) {
-        let newStr = str.split("").splice(i, k);
+        let newStr = str.split("");
+        // splice returns a new array with the removed items and mutates the old array
+        newStr.splice(i, k);
+        newStr = newStr.join("");
         let a = zipCode(newStr);
         if (a.length < min) {
             min = a.length;
@@ -44,4 +45,4 @@ function solution(S, K) {
 
 // given a string of letters A-Z and a K number, you have to delete K letters and then compress the string like AAA -> 3A . BAA -> B2B . AABB -> 2A2B
 // what is the length of the compressed string
-console.log(solution("AAAAABXXAAAAAAAAAAA", 3)); //16A
+console.log(solution("AAAAABXXAAAAAAAAAAA", 3)); //15A => 3
