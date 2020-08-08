@@ -1,17 +1,18 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 // given a string that contains only a and b 
 // in how many ways can you split the string to contain 3 parts with the same number of "a" in every substring 
 namespace ConsoleApp3
 {
-    class Program
+    class ProgramV2
     {
-        //static void Main(string[] args)
-        //{
-        //    Console.WriteLine(test("bbbbb"));
-        //}
+        static void Main(string[] args)
+        {
+            Console.WriteLine(test("bbbbb"));
+            Console.WriteLine(test("baabbaaaab"));
+        }
 
         static int test(string S)
         {
@@ -20,44 +21,45 @@ namespace ConsoleApp3
             {
                 return 0;
             }
-            var primul = "";
-            var second = "";
-            var third = "";
-            int max = 0;
-            
-            // split the initial string in 3 strings with the same number of a
-            // Improvement use a string builder
-            for(int i = 0; i < S.Length; i++)
-            {
-                // finished in a
-                if(primul.Count(a=>a == 'a') != nrOfA / 3)
-                {
-                    primul += S[i];
-                    continue;
-                }
-                // finished in a
-                if (second.Count(a => a == 'a') != nrOfA / 3)
-                {
-                    second += S[i];
-                    continue;
-                }
-                // cannnot be split more than that
-                if (third.Count(a => a == 'a') != nrOfA / 3)
-                {
-                    third += S[i];
-                    continue;
-                }
-            }
-
 
             // if the number of a is 0 then we have combinations of strings length - 1 taken in groups of 2, 
             // the formula is  nCr = n! / r! * (n - r)!
-            // improvement move it at the beginning
             if (nrOfA == 0)
             {
-                return nCr(S.Length-1, 2);
+                return nCr(S.Length - 1, 2);
             }
 
+            var first = new StringBuilder("");
+            var second = new StringBuilder("");
+            var third = new StringBuilder("");
+
+            var firstA = 0;
+            var secoundA = 0;
+            var thirdA= 0;
+            // split the initial string in 3 strings with the same number of a
+            foreach (var c in S)
+            {
+                // finished in a
+                if(firstA != nrOfA / 3)
+                {
+                    if (c == 'a') firstA++;
+                    first.Append(c);
+                    continue;
+                }
+                // finished in a
+                if (secoundA != nrOfA / 3)
+                {
+                    if (c == 'a') secoundA++;
+                    second.Append(c);
+                    continue;
+                }
+                // cannnot be split more than that
+                if (thirdA != nrOfA / 3)
+                {
+                    if (c == 'a') thirdA++;
+                    third.Append(c);
+                }
+            }
 
             int x = 1;
             for(int i = 0; i < second.Length; i++)
