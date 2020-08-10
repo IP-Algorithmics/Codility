@@ -6,7 +6,7 @@ using System.Linq;
 // X - array of x coordinates for points
 // Y - array of Y coordinates for points
 // so S[0],X[0],Y[0] is the point with Tag S[0] and coordinates x,y
-// how big can you draw a circle  from 0,0  until you encounter a Point with a Tag that was already used
+// how many points can you include in a circle that you draw from 0,0 until you encounter a Point with a Tag that was already used
 
 
 // Improvement 
@@ -27,13 +27,13 @@ namespace ConsoleApp1
             int result = 0;
 
             int i = 1;
-            while(true)
+            while (true)
             {
                 bool br = false;
                 var contained = new HashSet<char>();
-                for(int j = 0; j < S.Length; j++)
+                for (int j = 0; j < S.Length; j++)
                 {
-                    if (Math.Sqrt(  (double)(Math.Pow(X[j], 2) + Math.Pow(Y[j], 2))  ) < i)
+                    if (Math.Sqrt((double)(Math.Pow(X[j], 2) + Math.Pow(Y[j], 2))) < i)
                     {
                         if (!contained.Contains(S[j]))
                         {

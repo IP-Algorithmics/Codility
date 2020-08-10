@@ -6,7 +6,7 @@ using System.Linq;
 // X - array of x coordinates for points
 // Y - array of Y coordinates for points
 // so S[0],X[0],Y[0] is the point with Tag S[0] and coordinates x,y
-// how big can you draw a circle  from 0,0  until you encounter a Point with a Tag that was already used
+// how many points can you include in a circle that you draw from 0,0 until you encounter a Point with a Tag that was already used
 
 
 // Improvement 
@@ -25,7 +25,8 @@ namespace ConsoleApp1
         static int Test(string S, int[] X, int[] Y)
         {
             var pointsDistance = S.Split("").ZipThree(X, Y, (tag, x, y) =>
-                new {
+                new
+                {
                     Tag = tag,
                     Distance = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2))
                 }).ToList();
